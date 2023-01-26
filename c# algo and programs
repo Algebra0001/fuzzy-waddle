@@ -1,0 +1,199 @@
+// Online C# Editor for free
+// Write, Edit and Run your C# code using C# Online Compiler
+
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        string guessWord = "audi";
+        string guess = "";
+        int guessCount = 0;
+        int guessLimit = 3;
+        bool outOfGuesses = false;
+
+        while(guessWord != guess && !outOfGuesses)
+        {
+            if(guessCount < guessLimit)
+            {
+                Console.Write("Guess my favourite Car Brand: ");
+                guess = Console.ReadLine();
+                guessCount++;
+            }
+            else
+            {
+                outOfGuesses = true;
+            }
+        }
+        if(outOfGuesses)
+        {
+            Console.Write("You just Lost $500");
+        }
+        else
+        {
+            Console.Write("Congratulations\n You just won $500!!!");
+        }
+    }
+}
+
+
+
+
+//>>>>>>>>>>>>>> DescendingOrder Sort Algorithm Challenge <<<<<<<<<<<<<<<<<<<
+   static int SortDescending(int num)
+{
+    //convert int to string
+    string numStr = num.ToString();
+
+    //convert numStr to char Array
+    char[] numArr = numStr.ToCharArray();
+
+    //sort the numArr in descending order
+    Array.Sort(numArr, (num1, num2) => num2 - num1);
+
+    //convert the sorted array back to string
+    string result = new string(numArr);
+
+    //convert the string to int and return
+    return int.Parse(result);
+}
+
+
+//>>>>>>>>>>>>>>>> Confirming Tickets Availability Using if else & Null Coalescing Operator (??) <<<<<<<<<<<<<<<<<<<<<<<<
+
+sing System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+namespace HelloWorld
+{
+	public class Program
+	{
+	  	public static void Main(string[] args)
+		  {
+			 // int? TicketsOnSale = 100;
+			 // int AvailableTickets;
+			 // if(TicketsOnSale == null)
+			 // {
+			 //   AvailableTickets = 0;
+			 // }
+			 // else
+			 // {
+			 //   AvailableTickets = TicketsOnSale.Value;
+			 // }
+			 // Console.WriteLine("Available Tickets is {0}", AvailableTickets);
+		  // }
+>>>>>>>>>>>>>>>>>>>>>>>> Using Null Coalescing Character <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+		  int AvailableTickets;
+		  int? TicketsOnSale = null;
+		  AvailableTickets = TicketsOnSale ?? 0;
+		  Console.WriteLine("Available Tickets is {0}", AvailableTickets);
+		  }
+
+	}
+
+
+    >>>>>>>>>>>>>>>>>>>>>>>>>> Buying Coffee with label(goto) keyword <<<<<<<<<<<<<<<<<<<<<<
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        int billAmount = 0;
+        start:
+        Console.WriteLine("Please pick your coffee size...\n 1 - Small, \n 2 - Medium, \n 3 - Big");
+        int userChoice = int.Parse(Console.ReadLine());
+
+        switch(userChoice)
+        {
+            case 1:
+                billAmount += 1;
+                break;
+            case 2:
+                billAmount += 2;
+                break;
+            case 3:
+                billAmount += 3;
+                break;
+            default:
+                Console.WriteLine("Your Choice {0} is wrong", userChoice);
+                goto start;
+        }
+
+        Console.WriteLine("Would you like to buy more? Yes or No");
+        string userDecision = Console.ReadLine();
+        start2:
+        switch(userDecision.ToUpper())
+        {
+            case "YES":
+                goto start;
+            case "NO":
+                break;
+              default:
+                Console.WriteLine("Error!");
+            goto start2;
+        }
+
+        Console.WriteLine("Your bill is ${0}!", billAmount);
+        Console.WriteLine("Thanks for your patronage🤝🤝🤝🤝");
+    }
+}
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>> Buying Coffee with do---while loop <<<<<<<<<<<<<<<<<<<<<<
+// Online C# Editor for free
+// Write, Edit and Run your C# code using C# Online Compiler
+
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+       int billAmount = 0;
+       string userDecision = "";
+       do
+       {
+           int userChoice = -1;
+           do
+           {
+               Console.WriteLine("Welcome User,\nPlease select Your Choice from the available sizes...\n1 - Small,\n2 - Medium &\n3 - Big");
+                    userChoice = int.Parse(Console.ReadLine());
+
+               switch(userChoice)
+               {
+                   case 1:
+                        billAmount += 1;
+                    break;
+                    case 2:
+                        billAmount += 2;
+                    break;
+                    case 3:
+                        billAmount += 3;
+                    break;
+                    default:
+                        Console.WriteLine("Your choice is Incorrect, select again");
+                        break;
+               }
+           }while(userChoice != 1 && userChoice != 2 && userChoice != 3);
+
+           do
+           {
+               Console.WriteLine("Would you like to buy more? - Yes or No");
+                    userDecision = Console.ReadLine().ToUpper();
+
+               if(userDecision != "YES" && userDecision != "NO")
+               {
+                   Console.WriteLine("Your entry is wrong...\nPlease, select again");
+               }
+           }while(userDecision != "YES" && userDecision != "NO");
+       }while(userDecision.ToUpper() != "NO");
+
+       Console.WriteLine("Your bill is ${0}", billAmount);
+       Console.WriteLine("Thanks for your patronage!!");
+    }
+}
